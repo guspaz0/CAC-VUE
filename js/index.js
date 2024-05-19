@@ -1,6 +1,23 @@
 const { createApp } = Vue
-const footer = require('./components/footer')
-const header = require('./components/header')
+
+const navbar = {
+    template: `<p>Este es el header {{mensaje}}</p>`,
+    data(){
+        return {
+            mensaje: "mensaje header"
+        }
+    },
+}
+const pie = {
+    template: `<p>
+        Este es el footer {{mensaje}}
+    </p>`,
+    data(){
+        return {
+            mensaje: "mensaje footer"
+        }
+    }
+}
 
 
 createApp({
@@ -12,7 +29,7 @@ createApp({
         }
     },
     components: {
-        'footer': footer,
-        'header': header
+        'pie': pie,
+        'navbar': navbar
     }
 }).mount('#app')
