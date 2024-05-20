@@ -1,17 +1,19 @@
 <html>
     <head>
+        <link href="./css/index.css" rel="stylesheet"/>
     </head>
     <body>
         <div id="app">
             <navbar></navbar>
             <main>
-                <h1>{{ mensaje }}</h1>
-                <p>{{ curso }}</p>
-                <p>{{ alumno }}</p>
+                <home></home>
             </main>
             <pie></pie>
         </div>
     </body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/components/navbar.js"></script>
+    <script src="./js/components/pie.js"></script>
+    <script src="./js/components/home.js"></script>
     <script src="./js/index.js"></script>
 </html>
