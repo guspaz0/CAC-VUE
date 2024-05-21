@@ -1,10 +1,13 @@
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
         <link href="./css/index.css" rel="stylesheet"/>
     </head>
     <body>
         <div id="app">
-            <navbar></navbar>
+            <navmain></navmain>
             <main>
                 <home></home>
             </main>
@@ -12,8 +15,10 @@
         </div>
     </body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./js/components/navbar.js"></script>
+    <script src="https://unpkg.com/vue-router@3/dist/vue-router.js"></script>
+    <script src="./js/components/nav.js"></script>
     <script src="./js/components/pie.js"></script>
     <script src="./js/components/home.js"></script>
+    <script src="./js/components/detail.js"></script>
     <script src="./js/index.js"></script>
 </html>

@@ -1,6 +1,12 @@
 const { createApp } = Vue
 
-createApp({
+const routes = [
+    {path: '/detail/:id', component: Detail}
+]
+
+const router = new VueRouter({routes})
+
+const app = createApp({
     data(){
         return {
             mensaje: "Pokedex",
@@ -8,7 +14,11 @@ createApp({
     },
     components: {
         'pie': pie,
-        'navbar': Navbar,
+        'navmain': navmain,
         'home': home
     }
-}).mount('#app')
+})
+
+app.use(VueRouter)
+
+app.mount('#app')

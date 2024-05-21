@@ -1,9 +1,24 @@
+* {
+    font-family: "Nunito Sans", sans-serif;
+}
+body {
+    position: static;
+    height: 100%;
+}
+
 .navbar {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     gap: 5px;
+    height: 10%;
+    background-color: ye;
+}
+
+.navbar > img {
+    width: 15%;
+    background-position: center;
 }
 
 ul {
@@ -13,4 +28,37 @@ ul {
     align-items: center;
     justify-content: space-evenly;
     gap: 10px;
+}
+main {
+    height: 85%;
+    background-color: rgb();
+}
+.mainfooter {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 5%;
+    width: 100%;
+    margin-bottom: -10px;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 5px;
 }
