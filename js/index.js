@@ -1,10 +1,5 @@
 const { createApp } = Vue
-
-const routes = [
-    {path: '/detail/:id', component: Detail}
-]
-
-const router = new VueRouter({routes})
+const { createRouter, createWebHistory} = VueRouter
 
 const app = createApp({
     data(){
@@ -13,12 +8,25 @@ const app = createApp({
         }
     },
     components: {
-        'pie': pie,
         'navmain': navmain,
-        'home': home
+        'pie': pie
     }
 })
 
-app.use(VueRouter)
+const routes = [
+    {path: '/', component: home},
+    {path: '/detail/:id', component: Detail},
+    {path: '/login', component: login},
+    {path: '/pokedex', component: pokedex}
+]
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes: routes
+})
+
+
+
+app.use(router)
 
 app.mount('#app')

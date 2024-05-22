@@ -4,7 +4,7 @@ const navmain = {
         <h1>{{Titulo}} 🌎</h1>
         <ul>
             <li v-for="list in listasNav">
-                <a href={{list.href}}>{{list.nombre}}</a>
+                <router-link v-bind:to="list.href">{{list.nombre}}</router-link>
             </li>
         </ul>
     </nav>

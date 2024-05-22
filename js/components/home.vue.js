@@ -4,7 +4,7 @@ const home = {
         <article className="card" v-for="pokemon in pokeList" :key="pokemon.name">
             <b>{{pokemon.name}}</b>
             <img v-bind:src="pokemon.img" v-bind:alt="pokemon.name"/>
-            <a v-bind:href="pokemon.url">Detalle</a>
+            <router-link v-bind:to="'/detail/'+pokemon.url.split('pokemon/')[1].slice(0,-1)">Detalle</router-link>
         </article>
     </section>`,
     data(){
