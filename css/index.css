@@ -62,3 +62,23 @@ main {
     border-radius: 5px;
     padding: 5px;
 }
+
+.container-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.detail p {
+    margin: 0px
+}
