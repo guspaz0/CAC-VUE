@@ -32,17 +32,12 @@ const pokedex = {
     methods: {
         nextPage() {
             if (this.$route.query.page >= 0) {
-                this.$router.push({name: 'Pokedex', query: {page: this.page+1}})
-                this.page += 1
-                this.handlePage(this.page)
+                this.$router.push({name: 'pokedex', query: {page: this.page+1}})
             }
-            //
         },
         prevPage() {
             if (this.$route.query.page  >= 1)  {
-                this.$router.push({name: 'Pokedex', query: {page: this.page-1}})
-                this.page -= 1
-                this.handlePage(this.page)
+                this.$router.push({name: 'pokedex', query: {page: this.page-1}})
             }
         },
         async handlePage(page) {
@@ -54,22 +49,25 @@ const pokedex = {
                     let id = url.split('pokemon/')[1].slice(0,-1)
                     return {id, name, url, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
                 })
-                //return this.results
             }catch(err){
                 console.log(err)
             }
         }
     },
-    computed: {
-
-    },
-    mounted(){
+    created(){
         if (!this.$route.query.hasOwnProperty('page')) {
             this.$router.push({name: 'Pokedex', query: {page: 0}})
             this.page = 0
+            this.handlePage(this.page)
         } else {
             this.page = +this.$route.query.page
+            this.handlePage(this.page)
         }
-        this.handlePage(this.page)
+    },
+    updated(){
+        if (this.page != +this.$route.query?.page) {
+            this.page = this.$route.query?.page? +this.$route.query.page : 0;
+            this.handlePage(this.page)
+        }
     }
 }

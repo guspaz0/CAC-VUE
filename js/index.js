@@ -14,15 +14,10 @@ const app = createApp({
 })
 
 const routes = [
-    {path: '/', component: home},
+    {path: '/', name: 'home',component: home},
     {path: '/detail/:id', name: 'detail', component: Detail},
     {path: '/login', name: 'login',component: login},
-    {
-        path: '/pokedex', 
-        name: 'Pokedex', 
-        //props: (route) => ({page: route.query.page}),
-        component: pokedex
-    },
+    {path: '/pokedex', name: 'pokedex', component: pokedex},
     {path: '/sign-up', name: 'sign-up', component: register}
 ]
 
@@ -31,7 +26,6 @@ const router = createRouter({
     mode: 'history',
     routes: routes
 })
-
 
 
 app.use(router)

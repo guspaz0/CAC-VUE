@@ -19,4 +19,7 @@ const navmain = {
             ]
         }
     },
+    created(){
+        this.$router.push({name: 'home', path: '/'})
+    }
 }
