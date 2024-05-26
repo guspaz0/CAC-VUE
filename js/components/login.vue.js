@@ -1,7 +1,6 @@
 const login = {
-    template: `<div className="container">
-    <link rel="stylesheet" href="./css/login.css"/>
-    <div class="container" data-aos='zoom-in' data-aos-duration='1000' aos-init aos-animate>
+    template: `<div class="container login" data-aos='zoom-in' data-aos-duration='1000' aos-init aos-animate>
+    <h3>Inicio de sesion</h3>
         <form action="/user/login" method="POST" v-on:submit="handleSubmit">
             <fieldset>
                 <legend>
@@ -20,8 +19,7 @@ const login = {
             <label for="submit"></label>
             <input id="submit" name="submit" type="submit" value="Enviar"/>
         </form>
-        <p><a href="/register">Registrate</a></p>
-    </div>
+        <p><router-link to="/sign-up">Registrate</router-link></p>
     </div>`,
     data(){
         return {

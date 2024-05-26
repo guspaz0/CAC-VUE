@@ -1,5 +1,6 @@
 const Detail = {
-    template: `<div className="container-detail"> 
+    template: `<div className="container detail"> 
+        <button v-on:click="goBack">Volver</button>
         <h3>Detalle Pokemon #{{id}}</h3>
         <div className="detail">
             <img v-bind:src="image" v-bind:alt="pokemon.name"/>
@@ -37,6 +38,9 @@ const Detail = {
             }catch(err){
                 console.log(err)
             }
+        },
+        goBack() {
+            router.go(-1)
         }
     }
 }

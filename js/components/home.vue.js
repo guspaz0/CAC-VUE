@@ -1,10 +1,10 @@
 const home = {
     template: `<h2>{{Titulo}}</h2>
-    <section className="cards-container">
+    <section className="cards container">
         <article className="card" v-for="pokemon in pokeList" :key="pokemon.name">
-            <b>{{pokemon.name}}</b>
+            <b>#{{pokemon.id}} {{pokemon.name}}</b>
             <img v-bind:src="pokemon.img" v-bind:alt="pokemon.name"/>
-            <router-link v-bind:to="'/detail/'+pokemon.url.split('pokemon/')[1].slice(0,-1)">Detalle</router-link>
+            <router-link v-bind:to="'/detail/'+pokemon.id">Detalle</router-link>
         </article>
     </section>`,
     data(){
@@ -18,7 +18,8 @@ const home = {
             const res = await fetch('https://pokeapi.co/api/v2/pokemon')
             const data = await res.json()
             this.pokeList = data.results.map(({name,url}) => {
-                return {name, url, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${url.split('pokemon/')[1].slice(0,-1)}.png`}
+                let id = url.split('pokemon/')[1].slice(0,-1)
+                return {id, name, url, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
             })
         }catch(err){
             console.log(err)
