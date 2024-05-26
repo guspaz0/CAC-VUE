@@ -14,7 +14,7 @@ const navmain = {
             Titulo: "PokeApi",
             listasNav: [
                 {href: '/', nombre: 'Inicio'},
-                {href: '/pokedex', nombre: 'Pokedex'},
+                {href: '/pokedex', nombre: 'pokedex'},
                 {href: '/login', nombre: 'Iniciar Sesion'}
             ]
         }
