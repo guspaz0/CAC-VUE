@@ -56,7 +56,7 @@ const pokedex = {
     },
     created(){
         if (!this.$route.query.hasOwnProperty('page')) {
-            this.$router.push({name: 'Pokedex', query: {page: 0}})
+            this.$router.push({name: 'pokedex', query: {page: 0}})
             this.page = 0
             this.handlePage(this.page)
         } else {
