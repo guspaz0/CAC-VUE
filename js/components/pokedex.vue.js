@@ -2,8 +2,12 @@ const pokedex = {
     template: `<div className="container-pokedex">
         <div>
             <form>
-                <label for="search">Buscar:</label>
-                <input type="search" name="search"/>
+                <div>
+                    <label for="search">Ingresar nombre o Id:</label>
+                    <input id="search" type="search" name="search" v-model="search"/> 
+                    <small v-if="errors.search" className="error">{{errors.search}}</small>
+                </div>
+                <input @click="handleSearch" type="submit" value="Enviar">
             </form>
             <span className="pagination"> 
                 <button v-on:click="prevPage();" id="prevPage">Anterior</button>
@@ -26,7 +30,18 @@ const pokedex = {
             results: [],
             page: null,
             maxPage: null,
-            perPage: 20
+            perPage: 20,
+            search: null,
+            errors: {}
+        }
+    },
+    watch: {
+        search(value) {
+            delete this.errors.search
+            let onlyLetters = /^[A-z]+$/
+            let onlyNumbers = /^[0-9]+$/
+            if (!onlyLetters.test(value) && !onlyNumbers.test(value)) this.errors.search= 'Solo letras(Nombre) o numero(Id), NO los dos'
+            else if (value.length >= 2) this.search = value.toLowerCase()
         }
     },
     methods: {
@@ -51,6 +66,14 @@ const pokedex = {
                 })
             }catch(err){
                 console.log(err)
+            }
+        },
+        async handleSearch(name){
+            try {
+                name.preventDefault()
+                this.$router.push({name: 'detail', params: {id: this.search}})
+            } catch (error) {
+                console.log(error)
             }
         }
     },

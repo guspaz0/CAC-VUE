@@ -1,8 +1,9 @@
 const Detail = {
     template: `<div className="container detail"> 
         <button v-on:click="goBack">Volver</button>
-        <h3>Detalle Pokemon #{{id}}</h3>
-        <div className="detail">
+        <h3 v-if="errors.notfound">{{errors.notfound}}</h3>
+        <div v-else="" className="detail">
+            <h3>Detalle Pokemon #{{id}}</h3>
             <img v-bind:src="image" v-bind:alt="pokemon.name"/>
             <span>            
                 <p><b>Nombre:</b> {{pokemon.name}}</p>
@@ -22,7 +23,8 @@ const Detail = {
         return {
             pokemon: null,
             image: null,
-            id: this.$route.params.id
+            id: this.$route.params.id,
+            errors: {}
         }
     },
     async created () {
@@ -32,6 +34,7 @@ const Detail = {
         handleDetail: async function() {
             try {
                 const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${this.id}/`)
+                if (res.status == 404) this.errors.notfound = 'Pokemon No encontrado'
                 const data = await res.json()
                 this.pokemon = data
                 this.image = data.sprites.other.dream_world.front_default
