@@ -17,8 +17,8 @@ const pokedex = {
         </div>
         <div v-if="results.length > 0" className="cards container">
             <article className="card" v-for="pokemon in results" :key="pokemon.name">
-                <b>#{{pokemon.id}} {{pokemon.name}}</b>
-                <img v-bind:src="pokemon.img" v-bind:alt="pokemon.name"/>
+                <span><b>{{pokemon.name}}</b> <small>#{{pokemon.id}}</small></span>
+                <img v-bind:src="pokemon.img" v-bind:alt="pokemon.name" loading="lazy"/>
                 <router-link v-bind:to="'/detail/'+pokemon.id">Detalle</router-link>
             </article>
         </div>

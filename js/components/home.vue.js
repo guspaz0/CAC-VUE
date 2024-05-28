@@ -2,8 +2,8 @@ const home = {
     template: `<h2>{{Titulo}}</h2>
     <section className="cards container">
         <article className="card" v-for="pokemon in pokeList" :key="pokemon.name">
-            <b>#{{pokemon.id}} {{pokemon.name}}</b>
-            <img v-bind:src="pokemon.img" v-bind:alt="pokemon.name"/>
+        <span><b>{{pokemon.name}}</b> <small>#{{pokemon.id}}</small></span>
+            <img v-bind:src="pokemon.img" v-bind:alt="pokemon.name" loading="lazy"/>
             <router-link v-bind:to="'/detail/'+pokemon.id">Detalle</router-link>
         </article>
     </section>`,

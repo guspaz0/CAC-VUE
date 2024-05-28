@@ -1,13 +1,13 @@
 const Detail = {
     template: `<div className="container detail"> 
-        <button v-on:click="goBack">Volver</button>
+        <button v-on:click="goBack" className="button">Volver</button>
         <h3 v-if="errors.notfound">{{errors.notfound}}</h3>
-        <div v-else="" className="detail">
+        <div v-else="pokemon" className="detail">
             <h3>Detalle Pokemon #{{id}}</h3>
-            <img v-bind:src="image" v-bind:alt="pokemon.name"/>
+            <img v-bind:src="image" v-bind:alt="pokemon.name" loading="lazy"/>
             <span>            
                 <p><b>Nombre:</b> {{pokemon.name}}</p>
-                <p><b>peso:</b> {{pokemon.weight}} Kg</p>
+                <p><b>peso:</b> {{pokemon.weight/10}} Kg</p>
                 <p>
                     <b>tipo:</b> 
                     <ul>
