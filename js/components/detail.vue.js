@@ -2,7 +2,7 @@ const Detail = {
     template: `<div className="container detail"> 
         <button v-on:click="goBack" className="button">Volver</button>
         <h3 v-if="errors.notfound">{{errors.notfound}}</h3>
-        <div v-else="pokemon" className="detail">
+        <div v-else="pokemon" className="detail" v-bind:style="'background-color:'+backgrounds[pokemon.types[0].type.name] || defaultBackground">
             <h3>Detalle Pokemon #{{id}}</h3>
             <img v-bind:src="image" v-bind:alt="pokemon.name" loading="lazy"/>
             <span>            
@@ -24,6 +24,25 @@ const Detail = {
             pokemon: null,
             image: null,
             id: this.$route.params.id,
+            backgrounds: {
+                fire: 'orange',
+                electric: 'yellow',
+                bug: 'lime',
+                grass: 'green',
+                poison: 'purple',
+                water: 'turquoise',
+                psychic: 'gold',
+                normal: 'lightgray',
+                dragon: 'orange',
+                flying: 'lightgray',
+                rock: 'gray',
+                ground: 'brown',
+                fairy: 'pink',
+                fighting: 'lightgray',
+                ice: 'lightblue',
+                dark: 'slategray'
+            },
+            defaultBackground: 'lightgray',
             errors: {}
         }
     },
