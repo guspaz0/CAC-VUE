@@ -1,4 +1,4 @@
-const home = {
+export default {
     template: `<h2>{{Titulo}}</h2>
     <section className="cards container">
         <article className="card" v-for="pokemon in pokeList" :key="pokemon.name">

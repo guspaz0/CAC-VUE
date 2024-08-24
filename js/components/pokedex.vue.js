@@ -1,4 +1,4 @@
-const pokedex = {
+export default {
     template: `<div className="container-pokedex">
         <div>
             <form>

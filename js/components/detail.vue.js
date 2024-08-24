@@ -1,4 +1,4 @@
-const Detail = {
+export default {
     template: `<div className="container detail"> 
         <button v-on:click="goBack" className="button">Volver</button>
         <h3 v-if="errors.notfound">{{errors.notfound}}</h3>

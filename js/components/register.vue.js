@@ -1,4 +1,4 @@
-const register = {
+export default {
     template: `<div className="container register">
     <h3>Formulario de registro</h3>
         <form v-on:submit="handleSubmit">

@@ -1,4 +1,4 @@
-const login = {
+export default {
     template: `<div class="container login" data-aos='zoom-in' data-aos-duration='1000' aos-init aos-animate>
     <h3>Inicio de sesion</h3>
         <form action="/user/login" method="POST" v-on:submit="handleSubmit">

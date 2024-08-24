@@ -1,5 +1,8 @@
+import navmain from './components/nav.vue.js'
+import pie from './components/nav.vue.js'
+import router from './router.js'
+
 const { createApp } = Vue
-const { createRouter, createWebHistory} = VueRouter
 
 const app = createApp({
     data(){
@@ -12,21 +15,6 @@ const app = createApp({
         'pie': pie
     }
 })
-
-const routes = [
-    {path: '/', name: 'home',component: home},
-    {path: '/detail/:id', name: 'detail', component: Detail},
-    {path: '/login', name: 'login',component: login},
-    {path: '/pokedex', name: 'pokedex', component: pokedex},
-    {path: '/sign-up', name: 'sign-up', component: register}
-]
-
-const router = createRouter({
-    history: createWebHistory(),
-    mode: 'history',
-    routes: routes
-})
-
 
 app.use(router)
 

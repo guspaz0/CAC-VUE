@@ -1,4 +1,4 @@
-const pie = {
+export default {
     template: `<hr></hr>
     <footer class="mainfooter">
         <span>{{titulo}}</span>
